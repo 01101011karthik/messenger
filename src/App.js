@@ -119,7 +119,9 @@ function App() {
       const updatedMessageWithUsers = activeUsers.map(user => {
         if(user.userID === recentMessageItem.from){
           user.messages.push(recentMessageItem)
-          user.unreadMessagesCount = user.unreadMessagesCount + 1
+          if(selectedUser.userID !== user.userID){
+            user.unreadMessagesCount = user.unreadMessagesCount + 1
+          }
         }
 
         return user;
